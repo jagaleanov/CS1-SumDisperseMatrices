@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Matrices dispersas</title>
+
+        <!--CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+        <style type="text/css">
+            body{
+                background:#888888;
+
+            }
+
+            thead td td{
+                border: #F00 solid 1px;
+            }
+
+            tbody td td{
+                border: #000 solid 1px;
+            }
+        </style>
+
+        <!--JS-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <div class="fluid-container">
+            <nav class="avbar navbar-dark bg-dark navbar-expand-lg">
+                <h1 class="navbar-brand mx-4">Matrices dispersas</h1>
+            </nav>
+            <div class="row mx-2">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Matriz A</h5>
+                            <div class="row mx-2">
+                                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                    <label for="colTxtA">Columna</label>
+                                    <input type="number" name="colTxtA" id="colTxtA" class="form-control" value="" autocomplete="off" min="0" required>
+                                </div>
+                                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                    <label for="rowTxtA">Fila</label>
+                                    <input type="number" name="rowTxtA" id="rowTxtA" class="form-control" value="" autocomplete="off" min="0" required>
+                                </div>
+                                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                    <label for="valueTxtA">Valor</label>
+                                    <input type="number" name="valueTxtA" id="valueTxtA" class="form-control" value="" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <input type="button" name="submit" class="btn btn-primary btn-block" value="Añadir" onClick="insertRow('A')">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Matriz B</h5>
+                            <div class="row mx-2">
+                                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                    <label for="colTxtB">Columna</label>
+                                    <input type="number" name="colTxtB" id="colTxtB" class="form-control" value="" autocomplete="off" min="0" required>
+                                </div>
+                                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                    <label for="rowTxtB">Fila</label>
+                                    <input type="number" name="rowTxtB" id="rowTxtB" class="form-control" value="" autocomplete="off" min="0" required>
+                                </div>
+                                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                    <label for="valueTxtB">Valor</label>
+                                    <input type="number" name="valueTxtB" id="valueTxtB" class="form-control" value="" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <input type="button" name="submit" class="btn btn-primary btn-block" value="Añadir" onClick="insertRow('B')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-2">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista matriz A</h5>
+                            <table class="table-responsive maintab" style="font-size: 1.3em">
+                                <thead>
+                                    <tr id="tr_colsA">
+                                    </tr>
+                                </thead>
+                                <tbody id="t_rowsA">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista matriz B</h5>
+                            <table class="table-responsive maintab" style="font-size: 1.3em">
+                                <thead>
+                                    <tr id="tr_colsB">
+                                    </tr>
+                                </thead>
+                                <tbody id="t_rowsB">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="card  mx-4">
+                <div class="card-body">
+                    <h5 class="card-title">Lista matriz C = A + B</h5>
+                    <table class="table-responsive maintab" style="font-size: 1.3em">
+                        <thead>
+                            <tr id="tr_colsC">
+                            </tr>
+                        </thead>
+                        <tbody id="t_rowsC">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="js/MatricesDispersas.js" ></script>
+    </body>
+</html>
+
+
