@@ -48,20 +48,24 @@ class ListCol {
     }
 
     insertCol(col) {
+        
         var newNode = new NodeCol(col);
         if (!this.issetCol(col)) {
+            
             if (this.head !== null) {//si la cabeza esta nula
                 var temp = this.head;
-                if (newNode.col.localeCompare(temp.col) > -1) {//si el primero en la lista es menor que el nuevo nodo
+                //alert("Entro");
+
+                if (parseFloat(newNode.col)>=parseFloat(temp.col)) {//si el primero en la lista es menor que el nuevo nodo
                     while (temp.next !== null) {
-                        if (newNode.col.localeCompare(temp.next.col) > -1) {
+                        if (parseFloat(newNode.col)>=parseFloat(temp.next.col)) {
                             temp = temp.next;
                         } else {
                             break;
                         }
                     }
 
-                    if (newNode.next !== null && newNode.next.col.localeCompare(temp.col) > -1) {//si temp es el ultimo en la cola revisar si es menor (el bucle no diferencia si el ultimo es menor porque es el ultimo, no puede devolver null)
+                    if (newNode.next !== null && parseFloat(newNode.next.col)>=parseFloat(temp.col)) {//si temp es el ultimo en la cola revisar si es menor (el bucle no diferencia si el ultimo es menor porque es el ultimo, no puede devolver null)
                         newNode.next = null;
                         temp.next = newNode;
                     } else {//si esta en medio del primero y el ultimo
@@ -518,7 +522,7 @@ function printRows(matrix) {
 
         for (var j = 0; j < quantMaxRows; j++) {
 
-            if (counterCol > 0) {//Añadir espacio a la izquierda debajo de la flecha de materia
+            if (counterCol > 0) {//AÃ±adir espacio a la izquierda debajo de la flecha de materia
                 $('#tr_arrow_' + counterRow + matrix).append('<td class="td_row_' + counterCol + '"></td>');
 
                 $('#tr_badge_' + counterRow + matrix).append('<td class="td_row_' + counterCol + '"></td>');
