@@ -258,6 +258,69 @@ class ListRow {
 
             if (this.head !== null) {//si la cabeza esta nula
                 var temp = this.head;
+                if (parseFloat(newNode.row)>=parseFloat(temp.row)) {//si el primero en la lista es menor que el nuevo nodo
+                    while (temp.next !== null) {//mientras encuentre mas menores
+                        if (parseFloat(newNode.row)>=parseFloat(temp.next.row)) {
+                            temp = temp.next;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    if (newNode.next !== null && parseFloat(newNode.next.row)>=parseFloat(temp.row)) {//si temp es el ultimo en la cola revisar si es menor (el bucle no diferencia si el ultimo es menor porque es el ultimo, no puede devolver null)
+                        newNode.next = null;
+                        temp.next = newNode;
+                    } else {//si esta en medio del primero y el ultimo
+                        newNode.next = temp.next;
+                        temp.next = newNode;
+                    }
+                } else {//si va antes del primero+
+
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                       
+
+                    
+                   /*if(this.head>newNode)
+                    {
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                    }
+                    else
+                    {
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                    }
+
+                    /*if((this.head.compareTo(newNode))<0)
+                    {
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                    }
+                    else 
+
+                    {
+                        alert("entro");
+                        var tempo = this.head;
+                        this.head = newNode;
+                        newNode.next = tempo;
+                    }
+                    */
+                }
+            } else {//si aun no existe lista
+                this.head = newNode;
+            }
+        }
+
+        /*if (parseFloat(value) !== 0) {
+            //alert("valor dif a 0 = "+value);
+
+            if (this.head !== null) {//si la cabeza esta nula
+                var temp = this.head;
                 if (newNode.row.localeCompare(temp.row) > -1) {//si el primero en la lista es menor que el nuevo nodo
                     while (temp.next !== null) {//mientras encuentre mas menores
                         if (newNode.row.localeCompare(temp.next.row) > -1) {
@@ -274,15 +337,50 @@ class ListRow {
                         newNode.next = temp.next;
                         temp.next = newNode;
                     }
-                } else {//si va antes del primero
-                    var tempo = this.head;
-                    this.head = newNode;
-                    this.head.next = tempo;
+                } else {//si va antes del primero+
+
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                       
+
+                    
+                   /*if(this.head>newNode)
+                    {
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                    }
+                    else
+                    {
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                    }
+
+                    /*if((this.head.compareTo(newNode))<0)
+                    {
+                        var tempo = this.head;
+                        this.head = newNode;
+                        this.head.next = tempo;
+                    }
+                    else 
+
+                    {
+                        alert("entro");
+                        var tempo = this.head;
+                        this.head = newNode;
+                        newNode.next = tempo;
+                    }
+                    
                 }
             } else {//si aun no existe lista
                 this.head = newNode;
             }
-        }
+        }*/
+
+
+
     }
 
     sumRow(row, value) {
